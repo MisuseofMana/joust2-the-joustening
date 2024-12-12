@@ -8,3 +8,7 @@ script = ExtResource("1_sohys")
 
 [node name="Canvas" parent="." node_paths=PackedStringArray("world_node") instance=ExtResource("2_s72fx")]
 world_node = NodePath("..")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://actors/player.tscn")
+spawn_path = NodePath("..")

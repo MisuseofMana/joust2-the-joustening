@@ -18,15 +18,15 @@ func hostButtonPressed():
 	canvas.main_menu.hide()
 	enet_peer.create_server(PORT)
 	multiplayer.multiplayer_peer = enet_peer
+	multiplayer.peer_connected.connect(add_player)
+	
 	add_player(multiplayer.get_unique_id())
-	print('host')
 	
 func joinButtonPressed():
 	canvas.main_menu.hide()
 	enet_peer.create_client("localhost", PORT)
 	multiplayer.multiplayer_peer = enet_peer
 	add_player(multiplayer.get_unique_id())
-	print('join')
 	
 func add_player(peer_id):
 	var player = PLAYER.instantiate()
