@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cisu41ujyiguc"]
+
+[ext_resource type="Script" path="res://Scene/jump_pad.gd" id="1_vkw3y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v4isn"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6vabu"]
+size = Vector2(50, 50)
+
+[node name="jump_pad" type="GPUParticles2D"]
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_v4isn")
+texture = SubResource("PlaceholderTexture2D_6vabu")
+lifetime = 30.0
+script = ExtResource("1_vkw3y")
