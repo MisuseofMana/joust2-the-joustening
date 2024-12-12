@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bspno54d12tp7"]
+[gd_scene load_steps=4 format=3 uid="uid://bspno54d12tp7"]
 
 [ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_bfs87"]
+[ext_resource type="Script" path="res://world.gd" id="1_sohys"]
+[ext_resource type="PackedScene" uid="uid://ckptvfg4yqe2m" path="res://Scene/main_menu.tscn" id="2_s72fx"]
 
 [node name="World" type="Node"]
+script = ExtResource("1_sohys")
+
+[node name="Canvas" parent="." node_paths=PackedStringArray("world_node") instance=ExtResource("2_s72fx")]
+world_node = NodePath("..")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_bfs87")]
