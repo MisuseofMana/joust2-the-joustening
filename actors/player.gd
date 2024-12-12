@@ -7,11 +7,11 @@ const JUMP_VELOCITY = -400.0
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
-func _ready() -> void:
-	if not is_multiplayer_authority(): return
+#func _ready() -> void:
+	#if not is_multiplayer_authority(): return
 
 func _physics_process(delta: float) -> void:
-	if not is_multiplayer_authority(): return
+	#if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -33,14 +33,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-	
-	
 
 
-func _on_boundarie_collision_area_entered(area: Area2D) -> void:
+func _on_east_collision_area_entered(area: Area2D) -> void:
+	if area.name.contains('East'):
+		position.x = -1153
+		
+
+func _on_west_collision_area_entered(area: Area2D) -> void:
 	if area.name.contains('West'):
-		print('west')
-	elif area.name.contains('East'):
-		print('east')
-	elif area.name.contains('South'):
-		print('south')
+		position.x = 1153
