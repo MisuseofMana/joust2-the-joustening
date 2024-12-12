@@ -1,9 +1,12 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+
+func _ready() -> void:
+	get_tree()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,3 +27,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+	
+	
+
+
+func _on_boundarie_collision_area_entered(area: Area2D) -> void:
+	if area.name.contains('West'):
+		print('west')
+	elif area.name.contains('East'):
+		print('east')
+	elif area.name.contains('South'):
+		print('south')

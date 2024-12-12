@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://delbud12xum73"]
+[gd_scene load_steps=8 format=4 uid="uid://delbud12xum73"]
 
 [ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_cpnui"]
 [ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://Asset/Platform_SpriteSheet.png" id="2_ik6dl"]
@@ -45,9 +45,6 @@ distance = -650.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ovj3h"]
 distance = -125.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fsn06"]
-distance = -647.0
-
 [node name="LevelDefault" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -59,22 +56,23 @@ zoom = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD7/wUAAAAAAAEAAAD8/wUAAAACAAEAAAD9/wUAAAACAAEAAAD+/wUAAAABAAAAAAD//wUAAAACAAEAAAAAAAUAAAAAAAEAAAABAAUAAAACAAEAAAACAAUAAAAAAAEAAAACAAYAAAABAAAAAAADAAYAAAACAAEAAAAEAAYAAAABAAAAAAAFAAYAAAACAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAGAAAAAAABAAAAAAAHAAAAAAABAAEAAAAIAAAAAAABAAAAAAAJAAAAAAACAAEAAAAKAAAAAAABAAAAAAALAAAAAAACAAEAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAACAPj/AAABAAAAAAADAPj/AAACAAEAAAAEAPj/AAABAAAAAAAEAPf/AAACAAEAAAAFAPf/AAABAAEAAAAGAPf/AAAAAAEAAAAHAPf/AAABAAAAAAD1//j/AAAAAAEAAAD2//j/AAAAAAEAAAD3//j/AAAAAAEAAAD4//n/AAAAAAEAAAD5//n/AAAAAAEAAAD6//n/AAABAAAAAAD7//n/AAABAAAAAAD8//n/AAABAAEAAAD9//n/AAAAAAEAAADx/wkAAAAAAAEAAADy/wkAAAAAAAEAAADz/wkAAAABAAAAAAD0/woAAAABAAEAAAD1/woAAAACAAEAAAD2/woAAAABAAEAAAD3/woAAAABAAEAAAD4/woAAAACAAEAAADy////AAABAAEAAADz////AAACAAEAAAD0////AAACAAEAAAD1////AAACAAEAAAAMAAwAAAABAAAAAAAMAA0AAAABAAAAAAANAA0AAAABAAAAAAAOAA0AAAABAAAAAAAPAA0AAAABAAEAAAAQAA0AAAABAAEAAAARAA0AAAACAAAAAAAOAAAAAAACAAAAAAAJAAYAAAACAAAAAAADAAUAAAACAAAAAAAIAPf/AAACAAAAAAAFAPj/AAACAAAAAAD+//n/AAACAAAAAAANAAwAAAACAAAAAAD4//j/AAACAAAAAAD2////AAACAAAAAAD0/wkAAAACAAAAAAD5/woAAAACAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAABAAYAAAAAAAAAAAD6/wUAAAAAAAAAAADz/woAAAAAAAAAAADw/wkAAAAAAAAAAAAFAAAAAAAAAAAAAADx////AAAAAAAAAAD0//j/AAAAAAAAAAD3//n/AAAAAAAAAAABAPj/AAAAAAAAAAADAPf/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ossfr")
 
-[node name="Boundaries2" type="StaticBody2D" parent="."]
+[node name="East" type="Area2D" parent="."]
 position = Vector2(1, -1)
 
-[node name="East" type="CollisionShape2D" parent="Boundaries2"]
-rotation = 4.71239
+[node name="CollisionShape2D" type="CollisionShape2D" parent="East"]
+rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ig0m6")
-one_way_collision = true
 
-[node name="South" type="CollisionShape2D" parent="Boundaries2"]
+[node name="South" type="Area2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="South"]
 shape = SubResource("WorldBoundaryShape2D_0oeul")
 
-[node name="West" type="CollisionShape2D" parent="Boundaries2"]
+[node name="West" type="Area2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="West"]
 position = Vector2(-1028, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ovj3h")
-
-[node name="North" type="CollisionShape2D" parent="Boundaries2"]
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_fsn06")
