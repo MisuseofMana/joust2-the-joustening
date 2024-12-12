@@ -1,8 +1,11 @@
 extends CanvasLayer
 class_name MainMenu
 
-@onready var host_button = $PanelContainer/MarginContainer/VBoxContainer/HostButton
-@onready var join_button = $PanelContainer/MarginContainer/VBoxContainer/JoinButton
+@onready var host_button = $MainMenu/MarginContainer/VBoxContainer/HostButton
+@onready var join_button = $MainMenu/MarginContainer/VBoxContainer/JoinButton
+@onready var address_entry = $MainMenu/MarginContainer/VBoxContainer/AddressEntry
+@onready var main_menu = $MainMenu
+
 @export var world_node : World = null
 
 func _ready():
