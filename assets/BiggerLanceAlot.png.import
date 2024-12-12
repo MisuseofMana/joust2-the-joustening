@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd4ypprbp25l4"
-path="res://.godot/imported/Lance1.png-c165b35c4940247c1d9cdd5809485d99.ctex"
+uid="uid://c7jhfog10xpay"
+path="res://.godot/imported/BiggerLanceAlot.png-e2eac0d5bd5d327f5329b8a4b84c36ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Lance1.png"
-dest_files=["res://.godot/imported/Lance1.png-c165b35c4940247c1d9cdd5809485d99.ctex"]
+source_file="res://assets/BiggerLanceAlot.png"
+dest_files=["res://.godot/imported/BiggerLanceAlot.png-e2eac0d5bd5d327f5329b8a4b84c36ad.ctex"]
 
 [params]
 

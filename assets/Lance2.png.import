@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx24cmjni8vq4"
-path="res://.godot/imported/Lance2.png-f11777536c9965ef1bcfa9c613087ae3.ctex"
+path="res://.godot/imported/Lance2.png-abadbd45d132384a809f813aca44ce51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Lance2.png"
-dest_files=["res://.godot/imported/Lance2.png-f11777536c9965ef1bcfa9c613087ae3.ctex"]
+source_file="res://assets/Lance2.png"
+dest_files=["res://.godot/imported/Lance2.png-abadbd45d132384a809f813aca44ce51.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do3fjp46r6fwu"
-path="res://.godot/imported/Platform_SpriteSheet.png-ebdea07aa8092b6dc6771a707516d8f4.ctex"
+uid="uid://cxow0gcsidh1r"
+path="res://.godot/imported/keag.png-063ee552f46994e7915f05d44097412a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Platform_SpriteSheet.png"
-dest_files=["res://.godot/imported/Platform_SpriteSheet.png-ebdea07aa8092b6dc6771a707516d8f4.ctex"]
+source_file="res://assets/keag.png"
+dest_files=["res://.godot/imported/keag.png-063ee552f46994e7915f05d44097412a.ctex"]
 
 [params]
 

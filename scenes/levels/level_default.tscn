@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://delbud12xum73"]
+[gd_scene load_steps=9 format=4 uid="uid://delbud12xum73"]
 
-[ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_cpnui"]
-[ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://Asset/Platform_SpriteSheet.png" id="2_ik6dl"]
+[ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_4jhwt"]
+[ext_resource type="Script" path="res://scenes/levels/levels.gd" id="1_kcksk"]
+[ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://assets/Platform_SpriteSheet.png" id="2_xe7dh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amft7"]
-texture = ExtResource("2_ik6dl")
+texture = ExtResource("2_xe7dh")
 texture_region_size = Vector2i(64, 36)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(23.3085, -18, 32, -18, 32, 8.0095, 25.8284, -4.7697)
@@ -37,42 +38,71 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_amft7")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig0m6"]
-distance = -1152.0
+distance = 1.448e-05
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0oeul"]
-distance = -650.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ovj3h"]
-distance = -125.0
+distance = 7.23998e-06
 
-[node name="LevelDefault" type="Node2D"]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_cpnui")]
+[node name="LevelDefault" type="Node2D" node_paths=PackedStringArray("players_container", "spawn_points")]
+script = ExtResource("1_kcksk")
+players_container = NodePath("Players/PlayersContainer")
+player_scene = ExtResource("1_4jhwt")
+spawn_points = [NodePath("Players/SpawnPoint1"), NodePath("Players/SpawnPoint2"), NodePath("Players/SpawnPoint3"), NodePath("Players/SpawnPoint4"), NodePath("Players/SpawnPoint5"), NodePath("Players/SpawnPoint6")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(550, 307)
+scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD7/wUAAAAAAAEAAAD8/wUAAAACAAEAAAD9/wUAAAACAAEAAAD+/wUAAAABAAAAAAD//wUAAAACAAEAAAAAAAUAAAAAAAEAAAABAAUAAAACAAEAAAACAAUAAAAAAAEAAAACAAYAAAABAAAAAAADAAYAAAACAAEAAAAEAAYAAAABAAAAAAAFAAYAAAACAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAGAAAAAAABAAAAAAAHAAAAAAABAAEAAAAIAAAAAAABAAAAAAAJAAAAAAACAAEAAAAKAAAAAAABAAAAAAALAAAAAAACAAEAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAACAPj/AAABAAAAAAADAPj/AAACAAEAAAAEAPj/AAABAAAAAAAEAPf/AAACAAEAAAAFAPf/AAABAAEAAAAGAPf/AAAAAAEAAAAHAPf/AAABAAAAAAD1//j/AAAAAAEAAAD2//j/AAAAAAEAAAD3//j/AAAAAAEAAAD4//n/AAAAAAEAAAD5//n/AAAAAAEAAAD6//n/AAABAAAAAAD7//n/AAABAAAAAAD8//n/AAABAAEAAAD9//n/AAAAAAEAAADx/wkAAAAAAAEAAADy/wkAAAAAAAEAAADz/wkAAAABAAAAAAD0/woAAAABAAEAAAD1/woAAAACAAEAAAD2/woAAAABAAEAAAD3/woAAAABAAEAAAD4/woAAAACAAEAAADy////AAABAAEAAADz////AAACAAEAAAD0////AAACAAEAAAD1////AAACAAEAAAAMAAwAAAABAAAAAAAMAA0AAAABAAAAAAANAA0AAAABAAAAAAAOAA0AAAABAAAAAAAPAA0AAAABAAEAAAAQAA0AAAABAAEAAAARAA0AAAACAAAAAAAOAAAAAAACAAAAAAAJAAYAAAACAAAAAAADAAUAAAACAAAAAAAIAPf/AAACAAAAAAAFAPj/AAACAAAAAAD+//n/AAACAAAAAAANAAwAAAACAAAAAAD4//j/AAACAAAAAAD2////AAACAAAAAAD0/wkAAAACAAAAAAD5/woAAAACAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAABAAYAAAAAAAAAAAD6/wUAAAAAAAAAAADz/woAAAAAAAAAAADw/wkAAAAAAAAAAAAFAAAAAAAAAAAAAADx////AAAAAAAAAAD0//j/AAAAAAAAAAD3//n/AAAAAAAAAAABAPj/AAAAAAAAAAADAPf/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ossfr")
 
 [node name="East" type="Area2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(1152, 324)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="East"]
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ig0m6")
 
 [node name="South" type="Area2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(579, 648)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="South"]
 shape = SubResource("WorldBoundaryShape2D_0oeul")
 
 [node name="West" type="Area2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(0, 324)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="West"]
-position = Vector2(-1028, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_ovj3h")
+
+[node name="Players" type="Node" parent="."]
+
+[node name="PlayersContainer" type="Node2D" parent="Players"]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Players"]
+_spawnable_scenes = PackedStringArray("res://actors/player.tscn")
+spawn_path = NodePath("../PlayersContainer")
+spawn_limit = 8
+
+[node name="SpawnPoint1" type="Node2D" parent="Players"]
+position = Vector2(160, 250)
+
+[node name="SpawnPoint2" type="Node2D" parent="Players"]
+position = Vector2(242, 445)
+
+[node name="SpawnPoint3" type="Node2D" parent="Players"]
+position = Vector2(1017, 502)
+
+[node name="SpawnPoint4" type="Node2D" parent="Players"]
+position = Vector2(880, 267)
+
+[node name="SpawnPoint5" type="Node2D" parent="Players"]
+position = Vector2(391, 146)
+
+[node name="SpawnPoint6" type="Node2D" parent="Players"]
+position = Vector2(543, 359)

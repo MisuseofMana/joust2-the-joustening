@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckptvfg4yqe2m"]
 
-[ext_resource type="Script" path="res://Scene/main_menu.gd" id="1_ah34s"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_ah34s"]
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("1_ah34s")
@@ -32,15 +32,29 @@ layout_mode = 2
 text = "Joust 2 The Joustening"
 horizontal_alignment = 1
 
+[node name="ConnectingLabel" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="HostButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host Game"
 
-[node name="JoinButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Join Game"
 
 [node name="AddressEntry" type="LineEdit" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Enter Address"
 alignment = 1
+
+[node name="JoinButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"

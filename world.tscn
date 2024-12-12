@@ -1,14 +1,96 @@
-[gd_scene load_steps=3 format=3 uid="uid://bspno54d12tp7"]
+[gd_scene load_steps=4 format=3 uid="uid://bspno54d12tp7"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_sohys"]
-[ext_resource type="PackedScene" uid="uid://ckptvfg4yqe2m" path="res://Scene/main_menu.tscn" id="2_s72fx"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_l1uju"]
+[ext_resource type="Texture2D" uid="uid://dd4ypprbp25l4" path="res://assets/Lance1.png" id="2_feviu"]
+[ext_resource type="PackedScene" uid="uid://delbud12xum73" path="res://scenes/levels/level_default.tscn" id="2_fxc84"]
 
-[node name="World" type="Node"]
-script = ExtResource("1_sohys")
+[node name="Menu" type="Node" node_paths=PackedStringArray("address_entry", "connecting_label", "level_container", "not_connected_vbox", "host_vbox", "ui")]
+script = ExtResource("1_l1uju")
+address_entry = NodePath("MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox/AddressEntry")
+connecting_label = NodePath("MainMenu/MarginContainer/VBoxContainer/ConnectingLabel")
+level_container = NodePath("Level")
+level_scene = ExtResource("2_fxc84")
+not_connected_vbox = NodePath("MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox")
+host_vbox = NodePath("MainMenu/MarginContainer/VBoxContainer/HostVBox")
+ui = NodePath("MainMenu")
 
-[node name="Canvas" parent="." node_paths=PackedStringArray("world_node") instance=ExtResource("2_s72fx")]
-world_node = NodePath("..")
+[node name="Level" type="Node" parent="."]
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://actors/player.tscn")
-spawn_path = NodePath("..")
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/levels/level_default.tscn")
+spawn_path = NodePath("../Level")
+spawn_limit = 1
+
+[node name="MainMenu" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 396.0
+offset_top = 187.0
+offset_right = -396.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu"]
+position = Vector2(181, -32)
+texture = ExtResource("2_feviu")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Joust 2 The Joustening"
+horizontal_alignment = 1
+
+[node name="ConnectingLabel" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="NotConnectedVBox" type="VBoxContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HostButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="HSeparator2" type="HSeparator" parent="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox"]
+layout_mode = 2
+
+[node name="AddressEntry" type="LineEdit" parent="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox"]
+layout_mode = 2
+placeholder_text = "Enter Address"
+alignment = 1
+
+[node name="JoinButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox"]
+layout_mode = 2
+
+[node name="HostVBox" type="VBoxContainer" parent="MainMenu/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/MarginContainer/VBoxContainer/HostVBox"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer/HostVBox"]
+layout_mode = 2
+text = "Start Game"
+
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/NotConnectedVBox/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/HostVBox/StartButton" to="." method="_on_start_button_pressed"]
