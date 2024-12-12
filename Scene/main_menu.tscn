@@ -5,7 +5,7 @@
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("1_ah34s")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MainMenu" type="PanelContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,31 +16,31 @@ offset_bottom = -225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="GameTitle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Joust 2 The Joustening"
 horizontal_alignment = 1
 
-[node name="HostButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HostButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host Game"
 
-[node name="JoinButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="JoinButton" type="Button" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Join Game"
 
-[node name="AddressEntry" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="AddressEntry" type="LineEdit" parent="MainMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Enter Address"
 alignment = 1
