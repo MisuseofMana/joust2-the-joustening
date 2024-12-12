@@ -9,7 +9,7 @@ const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _process(delta):
 	pass
