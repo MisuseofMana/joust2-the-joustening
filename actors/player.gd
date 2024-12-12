@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Player
-
+@onready var sprite_2d: Sprite2D = $Sprite2D
+var left =  preload("res://Asset/Lance1.png")
+var right = preload("res://Asset/Lance2.png")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -29,10 +31,20 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
+	if Input.is_action_pressed("ui_left"):
+		sprite_2d.texture = left
+	elif Input.is_action_pressed("ui_right"):
+		sprite_2d.texture = right
+		
 	move_and_slide()
 
 
+func _input(event: InputEvent) -> void:
+	if event.as_text() == "Left":
+		sprite_2d.texture = left
+	elif event.as_text() == "Right": 
+		sprite_2d.texture = preload("res://Asset/Lance2.png")
 
 
 func _on_east_collision_area_entered(area: Area2D) -> void:
