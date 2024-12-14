@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=4 uid="uid://delbud12xum73"]
+
+[ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_4jhwt"]
+[ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://assets/Platform_SpriteSheet.png" id="2_xe7dh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amft7"]
+texture = ExtResource("2_xe7dh")
+texture_region_size = Vector2i(64, 36)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(23.3085, -18, 32, -18, 32, 8.0095, 25.8284, -4.7697)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, -23.0386, -18, -24.1185, -6.20961, -28.7982, 4.04974, -32, 10.5293)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -18, 32, -18, 32, 18, -32, 18)
+
+[sub_resource type="TileSet" id="TileSet_ossfr"]
+tile_size = Vector2i(64, 36)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_amft7")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig0m6"]
+distance = 1.448e-05
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0oeul"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ovj3h"]
+distance = 7.23998e-06
+
+[node name="LevelDefault" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_4jhwt")]
+position = Vector2(553, 336)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(550, 307)
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAD7/wUAAAAAAAEAAAD8/wUAAAACAAEAAAD9/wUAAAACAAEAAAD+/wUAAAABAAAAAAD//wUAAAACAAEAAAAAAAUAAAAAAAEAAAABAAUAAAACAAEAAAACAAUAAAAAAAEAAAACAAYAAAABAAAAAAADAAYAAAACAAEAAAAEAAYAAAABAAAAAAAFAAYAAAACAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAGAAAAAAABAAAAAAAHAAAAAAABAAEAAAAIAAAAAAABAAAAAAAJAAAAAAACAAEAAAAKAAAAAAABAAAAAAALAAAAAAACAAEAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAACAPj/AAABAAAAAAADAPj/AAACAAEAAAAEAPj/AAABAAAAAAAEAPf/AAACAAEAAAAFAPf/AAABAAEAAAAGAPf/AAAAAAEAAAAHAPf/AAABAAAAAAD1//j/AAAAAAEAAAD2//j/AAAAAAEAAAD3//j/AAAAAAEAAAD4//n/AAAAAAEAAAD5//n/AAAAAAEAAAD6//n/AAABAAAAAAD7//n/AAABAAAAAAD8//n/AAABAAEAAAD9//n/AAAAAAEAAADx/wkAAAAAAAEAAADy/wkAAAAAAAEAAADz/wkAAAABAAAAAAD0/woAAAABAAEAAAD1/woAAAACAAEAAAD2/woAAAABAAEAAAD3/woAAAABAAEAAAD4/woAAAACAAEAAADy////AAABAAEAAADz////AAACAAEAAAD0////AAACAAEAAAD1////AAACAAEAAAAMAAwAAAABAAAAAAAMAA0AAAABAAAAAAANAA0AAAABAAAAAAAOAA0AAAABAAAAAAAPAA0AAAABAAEAAAAQAA0AAAABAAEAAAARAA0AAAACAAAAAAAOAAAAAAACAAAAAAAJAAYAAAACAAAAAAADAAUAAAACAAAAAAAIAPf/AAACAAAAAAAFAPj/AAACAAAAAAD+//n/AAACAAAAAAANAAwAAAACAAAAAAD4//j/AAACAAAAAAD2////AAACAAAAAAD0/wkAAAACAAAAAAD5/woAAAACAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAABAAYAAAAAAAAAAAD6/wUAAAAAAAAAAADz/woAAAAAAAAAAADw/wkAAAAAAAAAAAAFAAAAAAAAAAAAAADx////AAAAAAAAAAD0//j/AAAAAAAAAAD3//n/AAAAAAAAAAABAPj/AAAAAAAAAAADAPf/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ossfr")
+
+[node name="East" type="Area2D" parent="."]
+position = Vector2(1152, 324)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="East"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_ig0m6")
+
+[node name="South" type="Area2D" parent="."]
+position = Vector2(579, 648)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="South"]
+shape = SubResource("WorldBoundaryShape2D_0oeul")
+
+[node name="West" type="Area2D" parent="."]
+position = Vector2(0, 324)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="West"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ovj3h")

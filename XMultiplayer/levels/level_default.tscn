@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://delbud12xum73"]
+[gd_scene load_steps=9 format=4 uid="uid://bouwcl7tkojg5"]
 
-[ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="1_4jhwt"]
-[ext_resource type="Script" path="res://scenes/levels/levels.gd" id="1_kcksk"]
-[ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://assets/Platform_SpriteSheet.png" id="2_xe7dh"]
+[ext_resource type="Script" path="res://levels/levels.gd" id="1_1gc6b"]
+[ext_resource type="PackedScene" uid="uid://dwoorjevexiew" path="res://actors/player.tscn" id="2_2gfag"]
+[ext_resource type="Texture2D" uid="uid://do3fjp46r6fwu" path="res://assets/Platform_SpriteSheet.png" id="3_vsb84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amft7"]
-texture = ExtResource("2_xe7dh")
+texture = ExtResource("3_vsb84")
 texture_region_size = Vector2i(64, 36)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(23.3085, -18, 32, -18, 32, 8.0095, 25.8284, -4.7697)
@@ -46,9 +46,9 @@ distance = 1.448e-05
 distance = 7.23998e-06
 
 [node name="LevelDefault" type="Node2D" node_paths=PackedStringArray("players_container", "spawn_points")]
-script = ExtResource("1_kcksk")
+script = ExtResource("1_1gc6b")
 players_container = NodePath("Players/PlayersContainer")
-player_scene = ExtResource("1_4jhwt")
+player_scene = ExtResource("2_2gfag")
 spawn_points = [NodePath("Players/SpawnPoint1"), NodePath("Players/SpawnPoint2"), NodePath("Players/SpawnPoint3"), NodePath("Players/SpawnPoint4"), NodePath("Players/SpawnPoint5"), NodePath("Players/SpawnPoint6")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

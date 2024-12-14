@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuifos61wp78t"]
+
+[ext_resource type="Texture2D" uid="uid://cxow0gcsidh1r" path="res://assets/keag.png" id="1_hjgql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkmet"]
+atlas = ExtResource("1_hjgql")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjp0r"]
+atlas = ExtResource("1_hjgql")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0pcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkmet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjp0r")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crs0w"]
+radius = 13.0
+height = 52.0
+
+[node name="LilGuy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e0pcy")
+animation = &"flap"
+autoplay = "flap"
+frame = 1
+frame_progress = 0.528505
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_crs0w")
